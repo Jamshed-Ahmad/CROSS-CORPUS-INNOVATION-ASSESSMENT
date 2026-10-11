@@ -81,8 +81,8 @@ class BM25Retriever:
 
         if self.corpus_tokens:
             try:
-                from rank_bm25 import BM25Okapi
-                self.bm25 = BM25Okapi(self.corpus_tokens)
+                from rank_bm25 import BM25Plus
+                self.bm25 = BM25Plus(self.corpus_tokens)
             except Exception:
                 self.bm25 = PurePythonBM25(self.corpus_tokens)
             logger.info(f"Indexed {len(self.doc_ids)} total documents in BM25 index.")
